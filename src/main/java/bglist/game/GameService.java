@@ -1,4 +1,4 @@
-package bglist.Game;
+package bglist.game;
 
 
 import org.springframework.stereotype.Service;

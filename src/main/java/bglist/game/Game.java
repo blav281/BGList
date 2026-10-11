@@ -1,4 +1,4 @@
-package bglist.Game;
+package bglist.game;
 
 
 import jakarta.persistence.Entity;
