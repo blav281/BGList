@@ -16,12 +16,23 @@ public class Rating {
     @ManyToOne
     @JoinColumn(name = "game_id", nullable = false)
     private Game game;
-
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     private Integer score;
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
 
 }

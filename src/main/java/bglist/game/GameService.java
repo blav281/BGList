@@ -1,9 +1,11 @@
 package bglist.game;
 
 
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GameService {
@@ -15,5 +17,9 @@ public class GameService {
 
     public List<Game> getAllGames(){
         return gameRepository.findAll();
+    }
+
+    public Optional<Game> getGameById(Long game_id){
+        return gameRepository.findById(game_id);
     }
 }
