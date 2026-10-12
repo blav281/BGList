@@ -1,7 +1,6 @@
 package bglist.game;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,4 +16,15 @@ public class GameController {
     public List<Game> getAllGames(){
         return gameService.getAllGames();
     }
+
+    @PutMapping("/games/{id}")
+    public Game putGame(@PathVariable Long id, @RequestBody GameRequest game){
+        return gameService.putGame(id, game);
+    }
+
+    @PostMapping("/games")
+    public Game postGame(@RequestBody GameRequest game){
+        return gameService.postGame(game);
+    }
 }
+

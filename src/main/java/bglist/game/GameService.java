@@ -22,4 +22,29 @@ public class GameService {
     public Optional<Game> getGameById(Long game_id){
         return gameRepository.findById(game_id);
     }
+
+    public Game putGame(Long id, GameRequest gameRequest){
+        Optional<Game> game = gameRepository.findById(id);
+        if(game.isEmpty()) {return null;}
+
+        Game newGame = game.get();
+        newGame.setName(gameRequest.name());
+        newGame.setMinPlayers(gameRequest.minPlayers());
+        newGame.setMaxPlayers(gameRequest.maxPlayers());
+        newGame.setMinMinutes(gameRequest.minMinutes());
+        newGame.setMaxMinutes(gameRequest.maxMinutes());
+
+        return gameRepository.save(newGame);
+    }
+
+    public Game postGame(GameRequest gameRequest){
+        Game newGame = new Game();
+        newGame.setName(gameRequest.name());
+        newGame.setMinPlayers(gameRequest.minPlayers());
+        newGame.setMaxPlayers(gameRequest.maxPlayers());
+        newGame.setMinMinutes(gameRequest.minMinutes());
+        newGame.setMaxMinutes(gameRequest.maxMinutes());
+
+        return gameRepository.save(newGame);
+    }
 }
